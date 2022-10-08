@@ -3,10 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import io
-# install: pip install --upgrade arabic-reshaper
-import arabic_reshaper
-# install: pip install python-bidi
-from bidi.algorithm import get_display
+
 
 cost = []
 title = []
@@ -67,9 +64,6 @@ with open("prodact.csv", "w", encoding='utf-8-sig') as myfile:
     wr = csv.writer(myfile)
     wr.writerow(['Titles', "Cost in JD", "City", "Neighborhood", "Status", "Link to the prodact","Details"])
     for i in range(len(title)):
-        # reshaped_text = arabic_reshaper.reshape(title)    # correct its shape
-        # bidi_text = get_display(reshaped_text)           # correct its directio
-
         wr.writerow([title[i], cost[i], city[i].strip(), neighborhood[i], status[i], link[i],details[i]])
 
 
